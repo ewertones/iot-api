@@ -7,7 +7,7 @@ You can see the API with its documentation here: <https://iot-api-backend-hmmf62
 You can see the full architecture diagram in the image below, created using Google Cloud Architecture Diagramming [tool](https://googlecloudcheatsheet.withgoogle.com/architecture):
 
 <p align="center">
-  <img width="300" src="https://github.com/ewertones/iot-api/blob/main/docs/architecture-diagram.png">
+  <img width="500" src="https://github.com/ewertones/iot-api/blob/main/docs/architecture-diagram.png">
 </p>
 
 Although the ER diagram is simple, you also can see it below:
