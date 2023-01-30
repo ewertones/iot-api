@@ -77,17 +77,17 @@ curl --request POST 'localhost:8080/trip' \
 curl --request POST 'localhost:8080/trips' \
 --header 'Content-Type: application/json' \
 --data-raw '[{
-  "region": "Prague",
-  "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
-  "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-  "datetime": "2018-05-28 09:03:40",
-  "datasource": "funny_car"
-},
-{
-  "region": "Prague",
-  "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
-  "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-  "datetime": "2018-05-28 09:03:40",
-  "datasource": "funny_car"
-}]'
+   "region": "Turin",
+   "origin_coord": "POINT (7.672837913286881 44.9957109242058)",
+   "destination_coord": "POINT (7.720368637535126 45.06782385393849)",
+   "datetime": "2018-05-21 02:54:04",
+   "datasource": "baba_car"
+ },
+ {
+   "region": "Prague",
+   "origin_coord": "POINT (14.32427345662177 50.00002074358429)",
+   "destination_coord": "POINT (14.47767895969969 50.09339790740321)",
+   "datetime": "2018-05-13 08:52:25",
+   "datasource": "cheap_mobile"
+ }]'
 ```
