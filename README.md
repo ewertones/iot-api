@@ -65,7 +65,7 @@ curl --request POST 'localhost:8080/trip' \
   "region": "Prague",
   "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
   "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-  "date": "2018-05-28 09:03:40",
+  "datetime": "2018-05-28 09:03:40",
   "datasource": "funny_car"
 }'
 
@@ -80,14 +80,14 @@ curl --request POST 'localhost:8080/trips' \
   "region": "Prague",
   "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
   "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-  "date": "2018-05-28 09:03:40",
+  "datetime": "2018-05-28 09:03:40",
   "datasource": "funny_car"
 },
 {
   "region": "Prague",
   "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
   "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-  "date": "2018-05-28 09:03:40",
+  "datetime": "2018-05-28 09:03:40",
   "datasource": "funny_car"
 }]'
 ```
