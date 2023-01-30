@@ -24,7 +24,7 @@ def get_trips(skip: int, limit: int, db: Session) -> list[TripGet]:
             TripsTable.origin_coord_y,
             TripsTable.destination_coord_x,
             TripsTable.destination_coord_y,
-            TripsTable.date,
+            TripsTable.datetime,
             TripsTable.datasource,
         )
         .order_by(TripsTable.date)
@@ -41,7 +41,7 @@ def get_trips(skip: int, limit: int, db: Session) -> list[TripGet]:
             origin_coord_y=origin_coord_y,
             destination_coord_x=destination_coord_x,
             destination_coord_y=destination_coord_y,
-            date=date.strftime("%Y-%m-%d %H:%M:%S"),
+            datetime=datetime.strftime("%Y-%m-%d %H:%M:%S"),
             datasource=datasource,
         )
         for region, origin_coord_x, origin_coord_y, destination_coord_x, destination_coord_y, date, datasource in trips
@@ -60,7 +60,7 @@ def parse_trip(trip: TripCreate) -> TripsTable:
         origin_coord_y=origin_coord.y,
         destination_coord_x=destination_coord.x,
         destination_coord_y=destination_coord.y,
-        date=trip.date,
+        datetime=trip.datetime,
         datasource=trip.datasource,
     )
     return db_trip

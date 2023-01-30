@@ -22,7 +22,7 @@ class TripsTable(Base):
     origin_coord_y = Column(Float, nullable=False)
     destination_coord_x = Column(Float, nullable=False)
     destination_coord_y = Column(Float, nullable=False)
-    date = Column(DateTime, nullable=False)
+    datetime = Column(DateTime, nullable=False)
     datasource = Column(String, nullable=False)
     created_at = Column(
         DateTime(timezone=True), nullable=False, server_default=func.now()

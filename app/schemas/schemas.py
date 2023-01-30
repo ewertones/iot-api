@@ -15,7 +15,7 @@ class TripBase(BaseModel):
     """Base class for trip data model."""
 
     region: str
-    date: str
+    datetime: str
     datasource: str
 
 
@@ -33,7 +33,7 @@ class TripCreate(TripBase):
                 "region": "Prague",
                 "origin_coord": "POINT (14.4973794438195 50.00136875782316)",
                 "destination_coord": "POINT (14.43109483523328 50.04052930943246)",
-                "date": "2018-05-28 09:03:40",
+                "datetime": "2018-05-28 09:03:40",
                 "datasource": "funny_car",
             }
         }
@@ -57,7 +57,7 @@ class TripGet(TripBase):
                 "origin_coord_y": 50.00136875782316,
                 "destination_coord_x": 14.43109483523328,
                 "destination_coord_y": 50.04052930943246,
-                "date": "2018-05-28 09:03:40",
+                "datetime": "2018-05-28 09:03:40",
                 "datasource": "funny_car",
             }
         }
