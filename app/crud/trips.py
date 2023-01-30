@@ -27,7 +27,7 @@ def get_trips(skip: int, limit: int, db: Session) -> list[TripGet]:
             TripsTable.datetime,
             TripsTable.datasource,
         )
-        .order_by(TripsTable.date)
+        .order_by(TripsTable.datetime)
         .offset(skip)
         .limit(limit)
         .all()
