@@ -1,0 +1,54 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    PROJECT_NUMBER: 6479828474
+    PROJECT_ID: iot-api-376218
+    SERVICE: iot-api-backend
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: "read"
+            id-token: "write"
+
+        steps:
+            - uses: "actions/checkout@v3"
+
+            - name: "Authenticate in Google Cloud"
+              uses: "google-github-actions/auth@v1"
+              with:
+                  workload_identity_provider: "projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/pool/providers/github"
+                  service_account: "github@iot-api-376218.iam.gserviceaccount.com"
+                  export_environment_variables: true
+
+            - name: "Set up Cloud SDK"
+              uses: "google-github-actions/setup-gcloud@v1"
+
+            - name: Authorize Docker push
+              run: gcloud auth configure-docker
+
+            - name: Build and Push Container
+              run: |-
+                  docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }} .
+                  docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
+
+            - name: "Deploy Cloud Run"
+              id: "deploy"
+              uses: "google-github-actions/deploy-cloudrun@v1"
+              with:
+                  service: ${{ env.SERVICE }}
+                  image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
+                  flags: --allow-unauthenticated
+                  secrets: |-
+                      DB_HOST=projects/${{ env.PROJECT_NUMBER }}/secrets/DB_HOST:latest,
+                      DB_USERNAME=projects/${{ env.PROJECT_NUMBER }}/secrets/DB_USERNAME:latest,
+                      DB_DATABASE=projects/${{ env.PROJECT_NUMBER }}/secrets/DB_DATABASE:latest,
+                      DB_PASSWORD=projects/${{ env.PROJECT_NUMBER }}/secrets/DB_PASSWORD:latest,
+                      DB_PORT=projects/${{ env.PROJECT_NUMBER }}/secrets/DB_PORT:latest

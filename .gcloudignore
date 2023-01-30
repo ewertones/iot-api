@@ -1,0 +1,9 @@
+.git
+.github
+docs/
+.env.example
+.gcloudignore
+.gitignore
+Dockerfile
+README.md
+requirements.txt
