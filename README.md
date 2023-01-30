@@ -18,6 +18,10 @@ Although the ER diagram is simple, you also can see it below:
 
 ## Why this architecture?
 
+1.  Cloud Run was an excellent choice to host my backend because it provides a scalable, serverless solution. With it, my API can automatically handle spikes in traffic and scale up to millions of requests, ensuring that the service remains fast and responsive. This allows me to focus on development and not worry about managing infrastructure.
+2.  In order to store the collected IoT trips data, I decided to use Cloud SQL, a fully managed relational database service. With Cloud SQL, I can easily set up and manage a PostgreSQL database that can store millions of rows of data. Cloud SQL also integrates seamlessly with Cloud Run, ensuring that my data is stored securely and is accessible to my API at all times.
+3.  For my API framework, I chose FastAPI, a modern, fast, and easy-to-use Python web framework. One of the key benefits of using FastAPI was its ability to automatically generate documentation, making it easy to share the API with others and allow them to quickly understand how to use it. Additionally, FastAPI's fast performance and asynchronous capabilities made it an ideal choice for handling the large number of post and get requests that my API would be receiving. I also used SQLAlchemy and Pydantic to enforce data validation and make it more manageable to perform operations in my database.
+
 ## Local Development
 
 1. Clone the project and `cd` inside directory:
