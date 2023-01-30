@@ -44,7 +44,7 @@ def get_trips(skip: int, limit: int, db: Session) -> list[TripGet]:
             datetime=datetime.strftime("%Y-%m-%d %H:%M:%S"),
             datasource=datasource,
         )
-        for region, origin_coord_x, origin_coord_y, destination_coord_x, destination_coord_y, date, datasource in trips
+        for region, origin_coord_x, origin_coord_y, destination_coord_x, destination_coord_y, datetime, datasource in trips
     ]
 
     return parsed_trips
