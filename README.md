@@ -1,12 +1,22 @@
 # ![CI](https://github.com/ewertones/iot-api/actions/workflows/main.yml/badge.svg?branch=main) IoT API
 
-This repository stores all the backend code for a proposed API to collect IoT devices' data. It is deployed through Cloud Run and uses a Cloud SQL instance (PostgreSQL) to store the information. You can see the full architecture diagram in the image below, created using Google Cloud Architecture Diagramming [tool](https://googlecloudcheatsheet.withgoogle.com/architecture):
+This repository stores all the backend code for a proposed API to collect IoT devices' data. It is deployed through Cloud Run and uses a Cloud SQL instance (PostgreSQL) to store the information.
 
-![Architecture Diagram](docs/architecture-diagram.png)
+You can see the API with its documentation here: <https://iot-api-backend-hmmf62ftsq-uc.a.run.app>
+
+You can see the full architecture diagram in the image below, created using Google Cloud Architecture Diagramming [tool](https://googlecloudcheatsheet.withgoogle.com/architecture):
+
+<div align="center">
+  ![Architecture Diagram](docs/architecture-diagram.png){:width="300px"}
+</div>
 
 Although the ER diagram is simple, you also can see it below:
 
-![ER Diagram](docs/er-diagram.png)
+<div align="center">
+  ![ER Diagram](docs/er-diagram.png){:width="300px"}
+</div>
+
+## Why this architecture?
 
 ## Local Development
 
@@ -38,7 +48,7 @@ iot:api
 
 4. Access it through <http://localhost:8080>.
 
-## Payloads
+## Example Payloads
 
 ### /GET trips
 
