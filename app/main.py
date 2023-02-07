@@ -96,7 +96,7 @@ async def docs():
     status_code=201,
     responses={201: {"model": OKMessage, "description": "Created"}},
 )
-def create_trip(trip: TripCreate, db: Session = Depends(get_db)) -> TripGet:
+def create_trip(trip: TripCreate, db: Session = Depends(get_db)) -> str:
     crud_create_trip(trip, db)
     return "OK"
 
